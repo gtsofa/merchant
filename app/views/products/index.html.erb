@@ -17,7 +17,7 @@
     <% @products.each do |product| %>
       <tr>
         <td><span class="product_title"><%= product.title %></span></td>
-        <td><%= product.price %></td>
+        <td><%= print_price(product.price) %></td>
         <td><%= product.description %></td>
         <td><%= image_tag "products/#{product.image_url}" %></td>
         <td><%= link_to 'Show', product %></td>
