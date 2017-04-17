@@ -1,6 +1,6 @@
 module ProductsHelper
   def print_price(price)
-    format("Kshs %.2f", price)
+    number_to_currency price
   end
   def print_stock(stock)
     if stock > 0
