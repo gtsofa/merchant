@@ -26,7 +26,8 @@
         <td><%= item.product.title %></td>
         <td><%= item.quantity %></td>
         <td><%= print_price(item.product.price)%></td>
-        <td><%= number_to_currency(item.subtotal)%></td>
+        
+        <td><%= print_price(item.subtotal)%></td>
         <td><%= number_to_currency(@order.total)%></td>
         <td><%= link_to "Remove", item, :confirm => 'Are you sure?', :method => :delete, :product_id => item.product_id %></td>
   </tr>
