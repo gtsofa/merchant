@@ -20,5 +20,19 @@
     <th>Unit Price</th>
     <th>Subtotal</th>
   </tr>
-  <!-- more code will go here -->
+  <% @order.order_items.each do |item| %>
+  <tr>
+        <td><%= image_tag "/images/products/#{item.product.image_url}" %></td>
+        <td><%= item.product.title %></td>
+        <td><%= item.quantity %></td>
+        <td><%= print_price(item.product.price)%></td>
+        <td><%= number_to_currency(item.subtotal)%></td>
+        <td><%= number_to_currency(@order.total)%></td>
+        <td><%= link_to "Remove", item, :confirm => 'Are you sure?', :method => :delete, :product_id => item.product_id %></td>
+  </tr>
+
+<% end %>
 </table>
+<p>
+  <%= link_to "Empty Cart", @order, confirm: 'Are you sure?', method: :delete %>
+</p>
