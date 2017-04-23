@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Merchant</title>
+    <title>FoodWorks - Products: <%= controller.action_name%></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -16,7 +16,7 @@
       <p>Your Online Grocery</p>
     </div>
 
-    <p style="color: green"><%= flash[:notice] %></p>
+    <%# <p style="color: red"><%= flash[:notice] %><%#</p> %>
 
     <div class="sidebar">
       (sidebar)

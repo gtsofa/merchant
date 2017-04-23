@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  has_many :order_items
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   # GET /orders
@@ -56,7 +57,7 @@ class OrdersController < ApplicationController
   def destroy
     @order.destroy
     respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
+      format.html { redirect_to products_path, notice: 'Order was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
