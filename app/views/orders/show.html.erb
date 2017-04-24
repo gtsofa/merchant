@@ -1,6 +1,9 @@
 <h1>Your Order</h1>
 
 <table>
+  <p>
+  Item Count: <%= @order.order_items.count %>
+</p>
   <tr>
     <th>Customer</th>
     <td><%= @order.user_id %></td>
@@ -31,7 +34,7 @@
         <td><%= print_price(item.subtotal)%></td>
         <td><%= number_to_currency(@order.total)%></td>
         <td><%= link_to "Remove", item, :confirm => 'Are you sure?', :method => :delete, :product_id => item.product_id %></td>
-        
+
   </tr>
 
 <% end %>
