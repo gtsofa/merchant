@@ -4,9 +4,9 @@ class OrderItemsController < ApplicationController
 
   # GET /order_items
   # GET /order_items.json
-  #def index
-    #@order_items = OrderItem.all
-  #end
+  def index
+    @order_items = OrderItem.all
+  end
 
   # GET /order_items/1
   # GET /order_items/1.json
@@ -14,9 +14,9 @@ class OrderItemsController < ApplicationController
   #end
 
   # GET /order_items/new
-  #def new
-    #@order_item = OrderItem.new
-  #end
+  def new
+    @order_item = OrderItem.new
+  end
 
   # GET /order_items/1/edit
   def edit
@@ -57,7 +57,7 @@ end
   def destroy
     @order_item.destroy
     respond_to do |format|
-      format.html { redirect_to order_items_url, notice: 'Order item was successfully removed.' }
+      format.html { redirect_to orders_url, notice: 'Order item was successfully removed.' }
       format.json { head :no_content }
     end
   end
