@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-  has_many :order_items
+  #has_many :order_items
+  #has_many  :order_items, dependant: :destroy
 
   # GET /orders
   # GET /orders.json
