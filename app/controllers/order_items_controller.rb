@@ -27,7 +27,7 @@ class OrderItemsController < ApplicationController
   # POST /order_items.json
   def create
   @order_item = @order.order_items.find_or_initialize_by(product_id: params[:product_id], order_id: @order.id)
-  @order_item.quantity += 1
+  @order_item.quantity += 1 #adds a one to order_item's quantity
   #@order_item = OrderItem.new(product_id: params[:product_id], order_id: @order.id)
   #@order_item = @order.order_items.new(quantity: 1, product_id: params[:product_id])
   respond_to do |format|
@@ -45,13 +45,17 @@ end
   # PATCH/PUT /order_items/1.json
   def update
     respond_to do |format|
-      #@order_item = OrderItem.find(params[:id])
-      if @order_item.update(order_item_params)
-        format.html { redirect_to @order_item, notice: 'Order item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @order_item }
+      @order_item = OrderItem.find(params[:id])
+      if params[:order_item][:quantity].to_i == 0
+        @order_item.destroy
+        format.html { redirect_to orders_path, notice: 'Order item was successfully destroyed.'}
+      elsif @order_item.update(order_item_params)
+        format.html { redirect_to orders_path, notice: 'Order item was successfully updated.'}
+        format.json {render :show, status: :ok, location: @order_item }
       else
         format.html { render :edit }
         format.json { render json: @order_item.errors, status: :unprocessable_entity }
+
       end
     end
   end
