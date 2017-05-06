@@ -39,6 +39,8 @@
 </table>
 <p>
   <%#<%= link_to "Empty Cart", @order, confirm: 'Are you sure?', method: :delete %>
+
   <%= link_to "Empty Cart", @order, data: { confirm: 'Are you sure?' }, method: :delete %>
+  <%= link_to 'Back', products_path %>
 
 </p>
