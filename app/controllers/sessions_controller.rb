@@ -4,4 +4,13 @@ class SessionsController < ApplicationController
     session[:user_id] = @user.id
     redirect_to products_path, notice: "Logged in as #{@user.name}"
   end
+
+  def destroy
+		session[:user_id] = nil
+		session[:order_id] = nil
+		respond_to do |format|
+		  format.html { redirect_to root_url, notice: 'Goodbye!' }
+		end
+	end
+
 end
